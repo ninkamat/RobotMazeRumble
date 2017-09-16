@@ -1,0 +1,664 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		08C973501C12564D008AF4E6 /* Tutorial3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08C9734E1C12564D008AF4E6 /* Tutorial3D.cpp */; };
+		08C973531C126C36008AF4E6 /* Astar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08C973511C126C36008AF4E6 /* Astar.cpp */; };
+		08C973DD1C15183B008AF4E6 /* EndOfLevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08C973DB1C15183B008AF4E6 /* EndOfLevel.cpp */; };
+		08C973E31C151A6C008AF4E6 /* 2bot.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 08C973E11C151A6C008AF4E6 /* 2bot.obj */; };
+		08C973E61C151B7E008AF4E6 /* crown.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 08C973E51C151B7E008AF4E6 /* crown.obj */; };
+		08C973E81C152111008AF4E6 /* Menu3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08C973E71C152111008AF4E6 /* Menu3D.cpp */; };
+		08E080221C0FB66000211673 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08E080211C0FB66000211673 /* Assets.xcassets */; };
+		08E080251C0FB66100211673 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08E080231C0FB66100211673 /* Main.storyboard */; };
+		08E080301C0FB66500211673 /* RoboMazeRumble3DTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E0802F1C0FB66500211673 /* RoboMazeRumble3DTests.m */; };
+		08E0803B1C0FB66600211673 /* RoboMazeRumble3DUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E0803A1C0FB66600211673 /* RoboMazeRumble3DUITests.m */; };
+		08E080491C0FB83A00211673 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08E080481C0FB83A00211673 /* OpenGL.framework */; };
+		08E0804B1C0FB84200211673 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08E0804A1C0FB84200211673 /* Cocoa.framework */; };
+		08E080591C0FB8B900211673 /* fssimplewindowcpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08E0804E1C0FB8B900211673 /* fssimplewindowcpp.cpp */; };
+		08E0805A1C0FB8B900211673 /* fssimplewindowobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E0804F1C0FB8B900211673 /* fssimplewindowobjc.m */; };
+		08E0805B1C0FB8B900211673 /* maze3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08E080501C0FB8B900211673 /* maze3D.cpp */; };
+		08E0805C1C0FB8B900211673 /* ysglfontdata.c in Sources */ = {isa = PBXBuildFile; fileRef = 08E080521C0FB8B900211673 /* ysglfontdata.c */; };
+		08E0805D1C0FB8B900211673 /* yspng.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08E080541C0FB8B900211673 /* yspng.cpp */; };
+		08E0805E1C0FB8B900211673 /* yspngenc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08E080561C0FB8B900211673 /* yspngenc.cpp */; };
+		08E080611C0FBCB200211673 /* RobotClass3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08E0805F1C0FBCB200211673 /* RobotClass3D.cpp */; };
+		08E080671C0FD66600211673 /* RMRGame3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08E080641C0FD66600211673 /* RMRGame3D.cpp */; };
+		08E080691C0FD67000211673 /* RoboMazeRumble3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08E080681C0FD67000211673 /* RoboMazeRumble3D.cpp */; };
+		08E080991C0FFC2100211673 /* Brick.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 08E0808A1C0FFC2100211673 /* Brick.png */; };
+		08E0809A1C0FFC2100211673 /* button.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 08E0808B1C0FFC2100211673 /* button.png */; };
+		08E0809B1C0FFC2100211673 /* Floor.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 08E0808C1C0FFC2100211673 /* Floor.png */; };
+		08E0809C1C0FFC2100211673 /* header.PNG in CopyFiles */ = {isa = PBXBuildFile; fileRef = 08E0808D1C0FFC2100211673 /* header.PNG */; };
+		08E0809D1C0FFC2100211673 /* profilesnew.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 08E0808E1C0FFC2100211673 /* profilesnew.txt */; };
+		08E0809E1C0FFC2100211673 /* profilesold.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 08E0808F1C0FFC2100211673 /* profilesold.txt */; };
+		08E0809F1C0FFC2100211673 /* Robo.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 08E080901C0FFC2100211673 /* Robo.png */; };
+		08E080A01C0FFC2100211673 /* scorecard.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 08E080911C0FFC2100211673 /* scorecard.png */; };
+		08E080A11C0FFC2100211673 /* scorecardold.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 08E080921C0FFC2100211673 /* scorecardold.txt */; };
+		08E080A21C0FFC2100211673 /* scorecard2.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 08E080931C0FFC2100211673 /* scorecard2.png */; };
+		08E080A31C0FFC2100211673 /* scorecard3.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 08E080941C0FFC2100211673 /* scorecard3.png */; };
+		08E080A41C0FFC2100211673 /* scorecardnew.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 08E080951C0FFC2100211673 /* scorecardnew.txt */; };
+		08E080A51C0FFC2100211673 /* Sky.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 08E080961C0FFC2100211673 /* Sky.png */; };
+		08E080A61C0FFC2100211673 /* Sky2.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 08E080971C0FFC2100211673 /* Sky2.png */; };
+		08E080AC1C1117D200211673 /* 1.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 08E080AB1C1117D200211673 /* 1.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		08E0802C1C0FB66500211673 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08E0800D1C0FB65C00211673 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 08E080141C0FB65D00211673;
+			remoteInfo = RoboMazeRumble3D;
+		};
+		08E080371C0FB66600211673 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08E0800D1C0FB65C00211673 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 08E080141C0FB65D00211673;
+			remoteInfo = RoboMazeRumble3D;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		08E0806A1C0FFB4700211673 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				08C973E61C151B7E008AF4E6 /* crown.obj in CopyFiles */,
+				08C973E31C151A6C008AF4E6 /* 2bot.obj in CopyFiles */,
+				08E080AC1C1117D200211673 /* 1.png in CopyFiles */,
+				08E080991C0FFC2100211673 /* Brick.png in CopyFiles */,
+				08E0809A1C0FFC2100211673 /* button.png in CopyFiles */,
+				08E0809B1C0FFC2100211673 /* Floor.png in CopyFiles */,
+				08E0809C1C0FFC2100211673 /* header.PNG in CopyFiles */,
+				08E0809D1C0FFC2100211673 /* profilesnew.txt in CopyFiles */,
+				08E0809E1C0FFC2100211673 /* profilesold.txt in CopyFiles */,
+				08E0809F1C0FFC2100211673 /* Robo.png in CopyFiles */,
+				08E080A01C0FFC2100211673 /* scorecard.png in CopyFiles */,
+				08E080A11C0FFC2100211673 /* scorecardold.txt in CopyFiles */,
+				08E080A21C0FFC2100211673 /* scorecard2.png in CopyFiles */,
+				08E080A31C0FFC2100211673 /* scorecard3.png in CopyFiles */,
+				08E080A41C0FFC2100211673 /* scorecardnew.txt in CopyFiles */,
+				08E080A51C0FFC2100211673 /* Sky.png in CopyFiles */,
+				08E080A61C0FFC2100211673 /* Sky2.png in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		08C9734E1C12564D008AF4E6 /* Tutorial3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tutorial3D.cpp; sourceTree = "<group>"; };
+		08C9734F1C12564D008AF4E6 /* Tutorial3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tutorial3D.h; sourceTree = "<group>"; };
+		08C973511C126C36008AF4E6 /* Astar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Astar.cpp; sourceTree = "<group>"; };
+		08C973521C126C36008AF4E6 /* Astar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Astar.h; sourceTree = "<group>"; };
+		08C973551C13B779008AF4E6 /* Menu3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu3D.h; sourceTree = "<group>"; };
+		08C973DB1C15183B008AF4E6 /* EndOfLevel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EndOfLevel.cpp; sourceTree = "<group>"; };
+		08C973DC1C15183B008AF4E6 /* EndOfLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EndOfLevel.h; sourceTree = "<group>"; };
+		08C973E11C151A6C008AF4E6 /* 2bot.obj */ = {isa = PBXFileReference; lastKnownFileType = text; name = 2bot.obj; path = RoboMazeRumble3D/2bot.obj; sourceTree = "<group>"; };
+		08C973E51C151B7E008AF4E6 /* crown.obj */ = {isa = PBXFileReference; lastKnownFileType = text; name = crown.obj; path = RoboMazeRumble3D/crown.obj; sourceTree = "<group>"; };
+		08C973E71C152111008AF4E6 /* Menu3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Menu3D.cpp; sourceTree = "<group>"; };
+		08E080151C0FB65D00211673 /* RoboMazeRumble3D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoboMazeRumble3D.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		08E080211C0FB66000211673 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		08E080241C0FB66100211673 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		08E080261C0FB66200211673 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		08E0802B1C0FB66500211673 /* RoboMazeRumble3DTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RoboMazeRumble3DTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		08E0802F1C0FB66500211673 /* RoboMazeRumble3DTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoboMazeRumble3DTests.m; sourceTree = "<group>"; };
+		08E080311C0FB66500211673 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		08E080361C0FB66600211673 /* RoboMazeRumble3DUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RoboMazeRumble3DUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		08E0803A1C0FB66600211673 /* RoboMazeRumble3DUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoboMazeRumble3DUITests.m; sourceTree = "<group>"; };
+		08E0803C1C0FB66600211673 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		08E080481C0FB83A00211673 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		08E0804A1C0FB84200211673 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		08E0804D1C0FB8B900211673 /* fssimplewindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fssimplewindow.h; sourceTree = "<group>"; };
+		08E0804E1C0FB8B900211673 /* fssimplewindowcpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fssimplewindowcpp.cpp; sourceTree = "<group>"; };
+		08E0804F1C0FB8B900211673 /* fssimplewindowobjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fssimplewindowobjc.m; sourceTree = "<group>"; };
+		08E080501C0FB8B900211673 /* maze3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = maze3D.cpp; sourceTree = "<group>"; };
+		08E080511C0FB8B900211673 /* maze3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = maze3D.h; sourceTree = "<group>"; };
+		08E080521C0FB8B900211673 /* ysglfontdata.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ysglfontdata.c; sourceTree = "<group>"; };
+		08E080531C0FB8B900211673 /* ysglfontdata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ysglfontdata.h; sourceTree = "<group>"; };
+		08E080541C0FB8B900211673 /* yspng.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = yspng.cpp; sourceTree = "<group>"; };
+		08E080551C0FB8B900211673 /* yspng.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = yspng.h; sourceTree = "<group>"; };
+		08E080561C0FB8B900211673 /* yspngenc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = yspngenc.cpp; sourceTree = "<group>"; };
+		08E080571C0FB8B900211673 /* yspngenc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = yspngenc.h; sourceTree = "<group>"; };
+		08E0805F1C0FBCB200211673 /* RobotClass3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RobotClass3D.cpp; sourceTree = "<group>"; };
+		08E080601C0FBCB200211673 /* RobotClass3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotClass3D.h; sourceTree = "<group>"; };
+		08E080641C0FD66600211673 /* RMRGame3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RMRGame3D.cpp; sourceTree = "<group>"; };
+		08E080651C0FD66600211673 /* RMRGame3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMRGame3D.h; sourceTree = "<group>"; };
+		08E080681C0FD67000211673 /* RoboMazeRumble3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RoboMazeRumble3D.cpp; sourceTree = "<group>"; };
+		08E0808A1C0FFC2100211673 /* Brick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Brick.png; path = RoboMazeRumble3D/Brick.png; sourceTree = "<group>"; };
+		08E0808B1C0FFC2100211673 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button.png; path = RoboMazeRumble3D/button.png; sourceTree = "<group>"; };
+		08E0808C1C0FFC2100211673 /* Floor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Floor.png; path = RoboMazeRumble3D/Floor.png; sourceTree = "<group>"; };
+		08E0808D1C0FFC2100211673 /* header.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = header.PNG; path = RoboMazeRumble3D/header.PNG; sourceTree = "<group>"; };
+		08E0808E1C0FFC2100211673 /* profilesnew.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = profilesnew.txt; path = RoboMazeRumble3D/profilesnew.txt; sourceTree = "<group>"; };
+		08E0808F1C0FFC2100211673 /* profilesold.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = profilesold.txt; path = RoboMazeRumble3D/profilesold.txt; sourceTree = "<group>"; };
+		08E080901C0FFC2100211673 /* Robo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Robo.png; path = RoboMazeRumble3D/Robo.png; sourceTree = "<group>"; };
+		08E080911C0FFC2100211673 /* scorecard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scorecard.png; path = RoboMazeRumble3D/scorecard.png; sourceTree = "<group>"; };
+		08E080921C0FFC2100211673 /* scorecardold.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = scorecardold.txt; path = RoboMazeRumble3D/scorecardold.txt; sourceTree = "<group>"; };
+		08E080931C0FFC2100211673 /* scorecard2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scorecard2.png; path = RoboMazeRumble3D/scorecard2.png; sourceTree = "<group>"; };
+		08E080941C0FFC2100211673 /* scorecard3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scorecard3.png; path = RoboMazeRumble3D/scorecard3.png; sourceTree = "<group>"; };
+		08E080951C0FFC2100211673 /* scorecardnew.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = scorecardnew.txt; path = RoboMazeRumble3D/scorecardnew.txt; sourceTree = "<group>"; };
+		08E080961C0FFC2100211673 /* Sky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Sky.png; path = RoboMazeRumble3D/Sky.png; sourceTree = "<group>"; };
+		08E080971C0FFC2100211673 /* Sky2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Sky2.png; path = RoboMazeRumble3D/Sky2.png; sourceTree = "<group>"; };
+		08E080AB1C1117D200211673 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 1.png; path = RoboMazeRumble3D/1.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		08E080121C0FB65D00211673 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08E0804B1C0FB84200211673 /* Cocoa.framework in Frameworks */,
+				08E080491C0FB83A00211673 /* OpenGL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08E080281C0FB66500211673 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08E080331C0FB66500211673 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08E0800C1C0FB65C00211673 = {
+			isa = PBXGroup;
+			children = (
+				08C973E51C151B7E008AF4E6 /* crown.obj */,
+				08C973E11C151A6C008AF4E6 /* 2bot.obj */,
+				08E080AB1C1117D200211673 /* 1.png */,
+				08E0808A1C0FFC2100211673 /* Brick.png */,
+				08E0808B1C0FFC2100211673 /* button.png */,
+				08E0808C1C0FFC2100211673 /* Floor.png */,
+				08E0808D1C0FFC2100211673 /* header.PNG */,
+				08E0808E1C0FFC2100211673 /* profilesnew.txt */,
+				08E0808F1C0FFC2100211673 /* profilesold.txt */,
+				08E080901C0FFC2100211673 /* Robo.png */,
+				08E080911C0FFC2100211673 /* scorecard.png */,
+				08E080921C0FFC2100211673 /* scorecardold.txt */,
+				08E080931C0FFC2100211673 /* scorecard2.png */,
+				08E080941C0FFC2100211673 /* scorecard3.png */,
+				08E080951C0FFC2100211673 /* scorecardnew.txt */,
+				08E080961C0FFC2100211673 /* Sky.png */,
+				08E080971C0FFC2100211673 /* Sky2.png */,
+				08E0804A1C0FB84200211673 /* Cocoa.framework */,
+				08E080481C0FB83A00211673 /* OpenGL.framework */,
+				08E080171C0FB65D00211673 /* RoboMazeRumble3D */,
+				08E0802E1C0FB66500211673 /* RoboMazeRumble3DTests */,
+				08E080391C0FB66600211673 /* RoboMazeRumble3DUITests */,
+				08E080161C0FB65D00211673 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		08E080161C0FB65D00211673 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				08E080151C0FB65D00211673 /* RoboMazeRumble3D.app */,
+				08E0802B1C0FB66500211673 /* RoboMazeRumble3DTests.xctest */,
+				08E080361C0FB66600211673 /* RoboMazeRumble3DUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		08E080171C0FB65D00211673 /* RoboMazeRumble3D */ = {
+			isa = PBXGroup;
+			children = (
+				08E080681C0FD67000211673 /* RoboMazeRumble3D.cpp */,
+				08E080211C0FB66000211673 /* Assets.xcassets */,
+				08E080231C0FB66100211673 /* Main.storyboard */,
+				08E080261C0FB66200211673 /* Info.plist */,
+				08E0801B1C0FB65E00211673 /* Supporting Files */,
+			);
+			path = RoboMazeRumble3D;
+			sourceTree = "<group>";
+		};
+		08E0801B1C0FB65E00211673 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				08C973E71C152111008AF4E6 /* Menu3D.cpp */,
+				08C973DB1C15183B008AF4E6 /* EndOfLevel.cpp */,
+				08C973DC1C15183B008AF4E6 /* EndOfLevel.h */,
+				08C973551C13B779008AF4E6 /* Menu3D.h */,
+				08C973511C126C36008AF4E6 /* Astar.cpp */,
+				08C973521C126C36008AF4E6 /* Astar.h */,
+				08C9734E1C12564D008AF4E6 /* Tutorial3D.cpp */,
+				08C9734F1C12564D008AF4E6 /* Tutorial3D.h */,
+				08E080641C0FD66600211673 /* RMRGame3D.cpp */,
+				08E080651C0FD66600211673 /* RMRGame3D.h */,
+				08E0805F1C0FBCB200211673 /* RobotClass3D.cpp */,
+				08E080601C0FBCB200211673 /* RobotClass3D.h */,
+				08E0804D1C0FB8B900211673 /* fssimplewindow.h */,
+				08E0804E1C0FB8B900211673 /* fssimplewindowcpp.cpp */,
+				08E0804F1C0FB8B900211673 /* fssimplewindowobjc.m */,
+				08E080501C0FB8B900211673 /* maze3D.cpp */,
+				08E080511C0FB8B900211673 /* maze3D.h */,
+				08E080521C0FB8B900211673 /* ysglfontdata.c */,
+				08E080531C0FB8B900211673 /* ysglfontdata.h */,
+				08E080541C0FB8B900211673 /* yspng.cpp */,
+				08E080551C0FB8B900211673 /* yspng.h */,
+				08E080561C0FB8B900211673 /* yspngenc.cpp */,
+				08E080571C0FB8B900211673 /* yspngenc.h */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		08E0802E1C0FB66500211673 /* RoboMazeRumble3DTests */ = {
+			isa = PBXGroup;
+			children = (
+				08E0802F1C0FB66500211673 /* RoboMazeRumble3DTests.m */,
+				08E080311C0FB66500211673 /* Info.plist */,
+			);
+			path = RoboMazeRumble3DTests;
+			sourceTree = "<group>";
+		};
+		08E080391C0FB66600211673 /* RoboMazeRumble3DUITests */ = {
+			isa = PBXGroup;
+			children = (
+				08E0803A1C0FB66600211673 /* RoboMazeRumble3DUITests.m */,
+				08E0803C1C0FB66600211673 /* Info.plist */,
+			);
+			path = RoboMazeRumble3DUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		08E080141C0FB65D00211673 /* RoboMazeRumble3D */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 08E0803F1C0FB66600211673 /* Build configuration list for PBXNativeTarget "RoboMazeRumble3D" */;
+			buildPhases = (
+				08E080111C0FB65D00211673 /* Sources */,
+				08E080121C0FB65D00211673 /* Frameworks */,
+				08E080131C0FB65D00211673 /* Resources */,
+				08E0806A1C0FFB4700211673 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RoboMazeRumble3D;
+			productName = RoboMazeRumble3D;
+			productReference = 08E080151C0FB65D00211673 /* RoboMazeRumble3D.app */;
+			productType = "com.apple.product-type.application";
+		};
+		08E0802A1C0FB66500211673 /* RoboMazeRumble3DTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 08E080421C0FB66600211673 /* Build configuration list for PBXNativeTarget "RoboMazeRumble3DTests" */;
+			buildPhases = (
+				08E080271C0FB66500211673 /* Sources */,
+				08E080281C0FB66500211673 /* Frameworks */,
+				08E080291C0FB66500211673 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				08E0802D1C0FB66500211673 /* PBXTargetDependency */,
+			);
+			name = RoboMazeRumble3DTests;
+			productName = RoboMazeRumble3DTests;
+			productReference = 08E0802B1C0FB66500211673 /* RoboMazeRumble3DTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		08E080351C0FB66500211673 /* RoboMazeRumble3DUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 08E080451C0FB66600211673 /* Build configuration list for PBXNativeTarget "RoboMazeRumble3DUITests" */;
+			buildPhases = (
+				08E080321C0FB66500211673 /* Sources */,
+				08E080331C0FB66500211673 /* Frameworks */,
+				08E080341C0FB66500211673 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				08E080381C0FB66600211673 /* PBXTargetDependency */,
+			);
+			name = RoboMazeRumble3DUITests;
+			productName = RoboMazeRumble3DUITests;
+			productReference = 08E080361C0FB66600211673 /* RoboMazeRumble3DUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08E0800D1C0FB65C00211673 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "2b||!2b";
+				TargetAttributes = {
+					08E080141C0FB65D00211673 = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+					08E0802A1C0FB66500211673 = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = 08E080141C0FB65D00211673;
+					};
+					08E080351C0FB66500211673 = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = 08E080141C0FB65D00211673;
+					};
+				};
+			};
+			buildConfigurationList = 08E080101C0FB65C00211673 /* Build configuration list for PBXProject "RoboMazeRumble3D" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 08E0800C1C0FB65C00211673;
+			productRefGroup = 08E080161C0FB65D00211673 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				08E080141C0FB65D00211673 /* RoboMazeRumble3D */,
+				08E0802A1C0FB66500211673 /* RoboMazeRumble3DTests */,
+				08E080351C0FB66500211673 /* RoboMazeRumble3DUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		08E080131C0FB65D00211673 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08E080221C0FB66000211673 /* Assets.xcassets in Resources */,
+				08E080251C0FB66100211673 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08E080291C0FB66500211673 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08E080341C0FB66500211673 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		08E080111C0FB65D00211673 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08E080691C0FD67000211673 /* RoboMazeRumble3D.cpp in Sources */,
+				08C973DD1C15183B008AF4E6 /* EndOfLevel.cpp in Sources */,
+				08E0805A1C0FB8B900211673 /* fssimplewindowobjc.m in Sources */,
+				08E080591C0FB8B900211673 /* fssimplewindowcpp.cpp in Sources */,
+				08E080671C0FD66600211673 /* RMRGame3D.cpp in Sources */,
+				08C973531C126C36008AF4E6 /* Astar.cpp in Sources */,
+				08E0805B1C0FB8B900211673 /* maze3D.cpp in Sources */,
+				08E080611C0FBCB200211673 /* RobotClass3D.cpp in Sources */,
+				08C973E81C152111008AF4E6 /* Menu3D.cpp in Sources */,
+				08E0805E1C0FB8B900211673 /* yspngenc.cpp in Sources */,
+				08C973501C12564D008AF4E6 /* Tutorial3D.cpp in Sources */,
+				08E0805D1C0FB8B900211673 /* yspng.cpp in Sources */,
+				08E0805C1C0FB8B900211673 /* ysglfontdata.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08E080271C0FB66500211673 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08E080301C0FB66500211673 /* RoboMazeRumble3DTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08E080321C0FB66500211673 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08E0803B1C0FB66600211673 /* RoboMazeRumble3DUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		08E0802D1C0FB66500211673 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 08E080141C0FB65D00211673 /* RoboMazeRumble3D */;
+			targetProxy = 08E0802C1C0FB66500211673 /* PBXContainerItemProxy */;
+		};
+		08E080381C0FB66600211673 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 08E080141C0FB65D00211673 /* RoboMazeRumble3D */;
+			targetProxy = 08E080371C0FB66600211673 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		08E080231C0FB66100211673 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				08E080241C0FB66100211673 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		08E0803D1C0FB66600211673 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		08E0803E1C0FB66600211673 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		08E080401C0FB66600211673 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				"HEADER_SEARCH_PATHS[arch=*]" = .;
+				INFOPLIST_FILE = RoboMazeRumble3D/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Ninad.RoboMazeRumble3D;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		08E080411C0FB66600211673 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				"HEADER_SEARCH_PATHS[arch=*]" = .;
+				INFOPLIST_FILE = RoboMazeRumble3D/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Ninad.RoboMazeRumble3D;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		08E080431C0FB66600211673 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = RoboMazeRumble3DTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Ninad.RoboMazeRumble3DTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RoboMazeRumble3D.app/Contents/MacOS/RoboMazeRumble3D";
+			};
+			name = Debug;
+		};
+		08E080441C0FB66600211673 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = RoboMazeRumble3DTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Ninad.RoboMazeRumble3DTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RoboMazeRumble3D.app/Contents/MacOS/RoboMazeRumble3D";
+			};
+			name = Release;
+		};
+		08E080461C0FB66600211673 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = RoboMazeRumble3DUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Ninad.RoboMazeRumble3DUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = RoboMazeRumble3D;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		08E080471C0FB66600211673 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = RoboMazeRumble3DUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Ninad.RoboMazeRumble3DUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = RoboMazeRumble3D;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		08E080101C0FB65C00211673 /* Build configuration list for PBXProject "RoboMazeRumble3D" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				08E0803D1C0FB66600211673 /* Debug */,
+				08E0803E1C0FB66600211673 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		08E0803F1C0FB66600211673 /* Build configuration list for PBXNativeTarget "RoboMazeRumble3D" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				08E080401C0FB66600211673 /* Debug */,
+				08E080411C0FB66600211673 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		08E080421C0FB66600211673 /* Build configuration list for PBXNativeTarget "RoboMazeRumble3DTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				08E080431C0FB66600211673 /* Debug */,
+				08E080441C0FB66600211673 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		08E080451C0FB66600211673 /* Build configuration list for PBXNativeTarget "RoboMazeRumble3DUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				08E080461C0FB66600211673 /* Debug */,
+				08E080471C0FB66600211673 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08E0800D1C0FB65C00211673 /* Project object */;
+}
