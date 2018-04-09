@@ -35,15 +35,12 @@ set (DATA_LOCATION "${${PROJECT_NAME}_SOURCE_DIR}/data")
 #----------------------------------------------------------------------
 add_subdirectory(include/ysgl)
 add_subdirectory(include/ysglfont)
-include_directories(include/ysglfont)
 add_subdirectory(include/yspng)
-include_directories(include/yspng)
 
 #----------------------------------------------------------------------
 # Add fssimplewindow framework subdirectory
 #----------------------------------------------------------------------
 add_subdirectory(include/fssimplewindow)
-include_directories(include/fssimplewindow)
 
 #----------------------------------------------------------------------
 # Add source subdirectory
