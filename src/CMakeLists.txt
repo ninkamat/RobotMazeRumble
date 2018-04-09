@@ -49,6 +49,9 @@ endif()
 target_link_libraries (${PROJECT_NAME} fssimplewindow)
 target_link_libraries (${PROJECT_NAME} ysbitmapfont)
 target_link_libraries (${PROJECT_NAME} ysbitmap)
+target_include_directories(${PROJECT_NAME} PUBLIC include/ysglfont)
+target_include_directories(${PROJECT_NAME} PUBLIC include/yspng)
+target_include_directories(${PROJECT_NAME} PUBLIC include/fssimplewindow)
 
 #----------------------------------------------------------------------
 # Copy data post build
