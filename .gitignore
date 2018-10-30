@@ -39,4 +39,5 @@ Thumbs.db
 *.xcuserstate
 *.app
 *.exe
+.vscode
 build

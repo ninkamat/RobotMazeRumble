@@ -54,6 +54,15 @@ target_include_directories(${PROJECT_NAME} PUBLIC include/yspng)
 target_include_directories(${PROJECT_NAME} PUBLIC include/fssimplewindow)
 
 #----------------------------------------------------------------------
+# Include directories
+#----------------------------------------------------------------------
+target_include_directories(${PROJECT_NAME}
+	PUBLIC ${CMAKE_SOURCE_DIR}/include/fssimplewindow
+	PUBLIC ${CMAKE_SOURCE_DIR}/include/ysbitmapfont
+	PUBLIC ${CMAKE_SOURCE_DIR}/include/ysbitmap
+)
+
+#----------------------------------------------------------------------
 # Copy data post build
 #----------------------------------------------------------------------
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD 

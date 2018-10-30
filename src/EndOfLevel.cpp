@@ -1,357 +1,20 @@
 #include "EndOfLevel.h"
-
-template <class T>
-GenericArray <T>::GenericArray()
-{
-	dat=nullptr;
-	lng=0;
-}
-
-template <class T>
-GenericArray<T>::GenericArray(const GenericArray <T> &incoming)
-{
-	if(&incoming!=this)
-	{
-		lng=0;
-		dat=nullptr;
-		if(0<incoming.GetLength())
-		{
-			Resize(incoming.GetLength());
-			for(int i=0; i<incoming.GetLength(); ++i)
-			{
-				auto ptr=incoming.Pointer();
-				dat[i]=ptr[i];
-			}
-		}
-	}
-}
-
-template <class T>
-GenericArray <T> &GenericArray<T>::operator=(const GenericArray <T> &incoming)
-{
-	if(&incoming!=this)
-	{
-		if(0==incoming.GetLength())
-		{
-			this->CleanUp();
-		}
-		else if(0<incoming.GetLength())
-		{
-			Resize(incoming.GetLength());
-			for(int i=0; i<incoming.GetLength(); ++i)
-			{
-				auto ptr=incoming.Pointer();
-				dat[i]=ptr[i];
-			}
-		}
-	}
-	return *this;
-}
-
-template <class T>
-GenericArray<T>::~GenericArray()
-{
-	CleanUp();
-}
-template <class T>
-void GenericArray<T>::CleanUp(void)
-{
-	lng=0;
-	if(nullptr!=dat)
-	{
-		delete [] dat;
-		dat=nullptr;
-	}
-}
-
-template <class T>
-void GenericArray<T>::Resize(int newLng)
-{
-	if(0==newLng)
-	{
-		CleanUp();
-	}
-	else
-	{
-		char *newDat=new T [newLng];
-		for(int i=0; i<newLng && i<lng; ++i)
-		{
-			newDat[i]=dat[i];
-		}
-
-		CleanUp();
-
-		lng=newLng;
-		dat=newDat;
-	}
-}
-
-template <class T>
-int GenericArray <T>::GetLength(void) const
-{
-	return lng;
-}
-
-template <class T>
-T *GenericArray<T>::Pointer(void)
-{
-	return dat;
-}
-template <class T>
-const T *GenericArray<T>::Pointer(void) const
-{
-	return dat;
-}
-
-
-
-
-void TextString::Print(void) const
-{
-	printf("%s\n",Pointer());
-}
-
-TextString::TextString()
-{
-}
-
-TextString::TextString(const TextString &incoming)
-{
-	Set(incoming.GetPointer());
-}
-
-TextString &TextString::operator=(const TextString &incoming)
-{
-	Set(incoming.GetPointer());
-	return *this;
-}
-
-TextString::~TextString()
-{
-	CleanUp();
-}
-
-const char *TextString::Fgets(FILE *fp)
-{
-	bool readSomething=false;
-
-	CleanUp();
-
-	char buf[16];
-	while(nullptr!=fgets(buf,15,fp))
-	{
-		readSomething=true;
-
-		for(int i=0; 0!=buf[i]; ++i)
-		{
-			Add(buf[i]);
-		}
-
-		const auto L=strlen(buf);
-		if(0==isprint(buf[L-1]))
-		{
-			break;
-		}
-	}
-
-	DeleteLastControlCode();
-
-	if(true==readSomething)
-	{
-		return Pointer();
-	}
-	return nullptr;
-}
-
-void TextString::DeleteLastControlCode(void)
-{
-	auto str=Pointer();
-	if(nullptr!=str)
-	{
-		int i;
-		for(i=0; 0!=str[i]; ++i)
-		{
-		}
-		for(i=i; 0<=i && 0==isprint(str[i]); --i)
-		{
-			str[i]=0;
-		}
-	}
-}
-
-void TextString::Add(char c)
-{
-	auto str=Pointer();
-	if(nullptr==str)
-	{
-		const char newstr[2]={c,0};
-		Set(newstr);
-	}
-	else
-	{
-		auto L=strlen(str);
-
-		Resize(L+2);
-
-		str=Pointer();
-
-		str[L]=c;
-		str[L+1]=0;
-	}
-}
-
-void TextString::DeleteLast(void)
-{
-	auto str=Pointer();
-	if(nullptr!=str)
-	{
-		auto L=strlen(str);
-		if(0<L)
-		{
-			str[L-1]=0;
-		}
-	}
-}
-
-void TextString::Set(const char incoming[])
-{
-	auto L=strlen(incoming);
-	Resize(L+1);
-
-	auto str=Pointer();
-	strcpy(str,incoming);
-}
-
-const char *TextString::GetPointer(void) const
-{
-	auto str=Pointer();
-	if(nullptr!=str)
-	{
-		return str;
-	}
-	else
-	{
-		return "";
-	}
-}
-
-int TextString::Strlen(void) const
-{
-	return strlen(GetPointer());
-}
+#include <fstream>
+#include <sstream>
+#include <iostream>
 
 ////////////////////////////////////////////////////////////
 
-
-StringParser::StringParser()
+std::vector<std::string> parse_string(const std::string& str)
 {
-	str=nullptr;
-	wordTop=nullptr;
-	wordLength=nullptr;
-	nw=0;
-}
-StringParser::~StringParser()
-{
-	CleanUp();
-}
-void StringParser::CleanUp(void)
-{
-	if(nullptr!=str)
-	{
-		delete [] str;
-		str=nullptr;
-	}
-	if(nullptr!=wordTop)
-	{
-		delete [] wordTop;
-		wordTop=nullptr;
-	}
-	if(nullptr!=wordLength)
-	{
-		delete [] wordLength;
-		wordTop=nullptr;
-	}
-}
-
-int StringParser::NW(void)
-{
-	return nw;
-}
-
-int StringParser::Parse(const char s[])
-{
-	CleanUp();
-
-	int n=strlen(s);
-	str=new char [n+1];
-	strcpy(str,s);
-
-	wordTop=new int [1+n/2];
-	wordLength=new int [1+n/2];
-	nw=Parse(wordTop,wordLength,1+n/2,s);
-	return nw;
-}
-
-int StringParser::Parse(int wordTop[],int wordLength[],int maxNumWord,const char str[])
-{
-	int state=0;  // 0:Blank   1:Visible Letter
-	int nw=0;
-	for(int i=0; 0!=str[i]; ++i)
-	{
-		switch(state)
-		{
-		case 0:
-			if(' '!=str[i] && isprint(str[i]))
-			{
-				if(nw<maxNumWord)
-				{
-					wordTop[nw]=i;
-					wordLength[nw]=1;
-				}
-				else
-				{
-					goto LOOPOUT;
-				}
-				++nw;
-				state=1;
-			}
-			else
-			{
-			}
-			break;
-		case 1:
-			if(' '!=str[i] && isprint(str[i]))
-			{
-				wordLength[nw-1]++;
-			}
-			else
-			{
-				state=0;
-			}
-			break;
-		}
-	}
-LOOPOUT:
-
-	return nw;
-}
-
-void StringParser::GetWord(char wd[],int maxn,int idx)
-{
-	wd[0]=0;
-	if(0<=idx && idx<nw)
-	{
-		for(int i=0; i<wordLength[idx] && i<maxn; ++i)
-		{
-			wd[i]=str[wordTop[idx]+i];
-			wd[i+1]=0;
-		}
-	}
+	std::istringstream iss(str);
+	std::vector<std::string> words(
+		(std::istream_iterator<std::string>{iss}),
+		std::istream_iterator<std::string>());
+	return words;
 }
 
 ////////////////////////////////////////////////////////////
-
-
 
 OBJData::OBJData()
 {
@@ -359,125 +22,78 @@ OBJData::OBJData()
 	a[1]=0.0;
 	a[2]=0.0;
 }
-OBJData::~OBJData()
-{
-	CleanUp();
-}
-void OBJData::CleanUp(void)
-{
-	tri.resize(0);
-	copy.resize(0);
-}
 
 void OBJData::ReadObj(const char fn[])
 {
-	FILE *fp=fopen(fn,"r");
-	if(nullptr!=fp)
+	std::ifstream objectFile(fn, std::ios::in);
+	if (!objectFile.fail())
 	{
-		TextString str;
-		StringParser parser;
-
-		//int state=0;  // 0:Outside facet  1:Inside facet
-		int v=1,f=1,c=0;
-		Vec3 p[9000];
-
-		while(nullptr!=str.Fgets(fp))
+		std::string line;
+		material_type current_material = DEFAULT;
+		while(std::getline(objectFile, line))
 		{
-			parser.Parse(str.GetPointer());
-			if(1<=parser.NW())
+			auto words = parse_string(line);
+			if (1 <= words.size())
 			{
-				char wd[256];
-				parser.GetWord(wd,255,0);
-
-				if(0==strcmp(wd,"v") && 4<=parser.NW() && v<5000)
+				auto first_word = words[0];
+				if (first_word.compare("v") == 0 && words.size() >= 4)
 				{
-					char xs[256],ys[256],zs[256];
-					parser.GetWord(xs,255,1);
-					parser.GetWord(ys,255,2);
-					parser.GetWord(zs,255,3);
-					p[v].v[0]=atof(xs);
-					p[v].v[1]=atof(ys);
-					p[v].v[2]=atof(zs);
-					++v;
+					position_3d vertex;
+					auto second_word = words[1];
+					auto third_word = words[2];
+					auto fourth_word = words[3];
+					vertex.v[0] = std::stod(second_word);
+					vertex.v[1] = std::stod(third_word);
+					vertex.v[2] = std::stod(fourth_word);
+					m_vertices.push_back(vertex);
 				}
-
-				else if(0==strcmp(wd,"usemtl"))
+				else if(first_word.compare("usemtl") == 0)
 				{
-					char mat[256];
-					parser.GetWord(mat,255,1);
-					if(0==strcmp(mat,"material_0"))
+					auto material_word = words[1];
+					if (material_word.compare("material_0") == 0)
 					{
-						color[c] = 0;
+						current_material = MATERIAL_0;
 					}
-					else if(0==strcmp(mat,"material_1"))
+					else if (material_word.compare("material_1") == 0)
 					{
-						color[c] = 1;
+						current_material = MATERIAL_1;
 					}
-					else if(0==strcmp(mat,"material_2"))
+					else if (material_word.compare("material_2") == 0)
 					{
-						color[c] = 2;
+						current_material = MATERIAL_2;
 					}
-					else if(0==strcmp(mat,"material_3"))
+					else if (material_word.compare("material_3") == 0)
 					{
-						color[c] = 3;
+						current_material = MATERIAL_3;
 					}
-					else if(0==strcmp(mat,"material_4"))
+					else if (material_word.compare("material_4") == 0)
 					{
-						color[c] = 4;
+						current_material = MATERIAL_4;
 					}
-					else if(0==strcmp(mat,"material_5"))
+					else if (material_word.compare("material_5") == 0)
 					{
-						color[c] = 5;
+						current_material = MATERIAL_5;
 					}
-					else if(0==strcmp(mat,"material_6"))
+					else if (material_word.compare("material_6") == 0)
 					{
-						color[c] = 6;
+						current_material = MATERIAL_6;
 					}
-					else if(0==strcmp(mat,"material_7"))
+					else if (material_word.compare("material_7") == 0)
 					{
-						color[c] = 7;
+						current_material = MATERIAL_7;
 					}
-					else //material 8
-					{
-						color[c] = 8;
-					}
-					pos[c] = f;
-					//printf("Color change to %d at face %d.\n",color[c],pos[c]);
-					++c;
 				}
-
-				else if(0==strcmp(wd,"f") && 4<=parser.NW())
+				else if(first_word.compare("f") == 0 && words.size() >= 4)
 				{
-					char xs[256],ys[256],zs[256];
-					Triangle t;
-					parser.GetWord(xs,255,1);
-					t.p[0]=p[atoi(xs)];
-					parser.GetWord(ys,255,2);
-					t.p[1]=p[atoi(ys)];
-					parser.GetWord(zs,255,3);
-					t.p[2]=p[atoi(zs)];
-					tri.push_back(t);
-					++f;
+					tri_facet tri;
+					tri.vertex_id[0] = std::stoi(words[1]) - 1;
+					tri.vertex_id[1] = std::stoi(words[2]) - 1;
+					tri.vertex_id[2] = std::stoi(words[3]) - 1;
+					tri.material = current_material;
+					m_facets.push_back(tri);
 				}
 			}
 		}
-		color[c] = color[c-1];
-		pos[c] = f+1;
-		fclose(fp);
-
-		copy = tri;
-		move.v[0]=0.0;
-		move.v[1]=0.0;
-		move.v[2]=0.0;
-
-		//printf("Found %d vertices.\n",v);
-		//printf("Found %d faces.\n",f);
-		//printf("Found %d colors.\n",c);
-		//printf("Found %d triangles.\n",(int)tri.size());
-	}
-	else
-	{
-		printf("Failed to open file.\n");
 	}
 }
 
@@ -507,47 +123,42 @@ void OBJData::Rotate(double a1,double x1,double y1,double z1)
 
 void OBJData::Draw(int k) const
 {
-	int i=1,c=0;
-
+	// std::cout << "Draw for loop reached!" << std::endl;;
 	glPushMatrix();
 	glRotatef(a[0], 1.0, 0.0, 0.0);
 	glRotatef(a[1], 0.0, 1.0, 0.0);
 	glRotatef(a[2], 0.0, 0.0, 1.0);
 
 	glBegin(GL_TRIANGLES);
-	for(auto &t : copy)
+	
+	for(auto &current_facet : m_facets)
 	{
-		if(i >= pos[c+1])
-		{
-			++c;
-		}
-
 		if(k==0)
 		{
-			switch (color[c])
+			switch (current_facet.material)
 			{
-			case 0:
+			case MATERIAL_0:
 				glColor3f(0.000000,0.501961,1.000000);
 				break;
-			case 1:
+			case MATERIAL_1:
 				glColor3f(0.003922,0.239216,0.819608);
 				break;
-			case 2:
+			case MATERIAL_2:
 				glColor3f(0.776471,0.756863,0.737255);
 				break;
-			case 3:
+			case MATERIAL_3:
 				glColor3f(1.0,1.0,1.0);
 				break;
-			case 4:
+			case MATERIAL_4:
 				glColor3f(0.101961,0.101961,0.101961);
 				break;
-			case 5:
+			case MATERIAL_5:
 				glColor3f(0.0,0.0,0.0);
 				break;
-			case 6:
+			case MATERIAL_6:
 				glColor3f(1.0,0.874510,0.600000);
 				break;
-			case 7:
+			case MATERIAL_7:
 				glColor3f(0.709804,0.019608,0.019608);
 				break;
 			default:
@@ -558,30 +169,30 @@ void OBJData::Draw(int k) const
 
 		else //if i=1
 		{
-			switch (color[c])
+			switch (current_facet.material)
 			{
-			case 0:
+			case MATERIAL_0:
 				glColor3f(1.000000,0.201961,0.000000);
 				break;
-			case 1:
+			case MATERIAL_1:
 				glColor3f(0.819608,0.239216,0.003922);
 				break;
-			case 2:
+			case MATERIAL_2:
 				glColor3f(0.776471,0.756863,0.737255);
 				break;
-			case 3:
+			case MATERIAL_3:
 				glColor3f(1.0,1.0,1.0);
 				break;
-			case 4:
+			case MATERIAL_4:
 				glColor3f(0.101961,0.101961,0.101961);
 				break;
-			case 5:
+			case MATERIAL_5:
 				glColor3f(0.0,0.0,0.0);
 				break;
-			case 6:
+			case MATERIAL_6:
 				glColor3f(1.0,0.874510,0.600000);
 				break;
-			case 7:
+			case MATERIAL_7:
 				glColor3f(0.709804,0.019608,0.019608);
 				break;
 			default:
@@ -589,20 +200,20 @@ void OBJData::Draw(int k) const
 				break;
 			}
 		}
-
-		glVertex3d(t.p[0].v[0]+move.v[0], t.p[0].v[1]+move.v[1], t.p[0].v[2]+move.v[2]);
-		glVertex3d(t.p[1].v[0]+move.v[0], t.p[1].v[1]+move.v[1], t.p[1].v[2]+move.v[2]);
-		glVertex3d(t.p[2].v[0]+move.v[0], t.p[2].v[1]+move.v[1], t.p[2].v[2]+move.v[2]);
-		++i;
+		unsigned vertexIdx0 = current_facet.vertex_id[0];
+		unsigned vertexIdx1 = current_facet.vertex_id[1];
+		unsigned vertexIdx2 = current_facet.vertex_id[2];
+		auto& vertex0 = m_vertices[vertexIdx0];
+		auto& vertex1 = m_vertices[vertexIdx1];
+		auto& vertex2 = m_vertices[vertexIdx2];
+		// std::cout << "v(" << vertex0.v[0] << "," << vertex0.v[1] << "," << vertex0.v[2] << ")" << std::endl;
+		glVertex3d(vertex0.v[0] + move.v[0], vertex0.v[1] + move.v[1], vertex0.v[2] + move.v[2]);
+		glVertex3d(vertex1.v[0] + move.v[0], vertex1.v[1] + move.v[1], vertex1.v[2] + move.v[2]);
+		glVertex3d(vertex2.v[0] + move.v[0], vertex2.v[1] + move.v[1], vertex2.v[2] + move.v[2]);
 	}
 	glEnd();
 	glPopMatrix();
 }
-
-
-
-
-
 
 
 CameraObject::CameraObject()
@@ -785,7 +396,7 @@ int EndofLevel(int winner)
 
 		// 2D drawing from here
 
-		if(winner = 0)
+		if(winner == 0)
 		{
 		for(auto &i : celebrate)						//Draw the confetti
 		{

@@ -5,104 +5,48 @@
 #include <stdlib.h>
 #include <math.h>
 #include <vector>
+#include <string>
+#include <array>
 
 #include "fssimplewindow.h"
 
 const double YsPi=3.1415927;
 
-
-////////////////////////////////////////////////////////////
-
-template <class T>
-class GenericArray
-{
-private:
-	int lng;
-	T *dat;
-
-public:
-	GenericArray();
-	GenericArray(const GenericArray <T> &incoming);
-	GenericArray &operator=(const GenericArray <T> &incoming);
-	~GenericArray();
-	void CleanUp(void);
-
-	void Resize(int newLng);
-	int GetLength(void) const;
-
-protected:
-	T *Pointer(void);
-	const T *Pointer(void) const;
+enum material_type {
+	MATERIAL_0,
+	MATERIAL_1,
+	MATERIAL_2,
+	MATERIAL_3,
+	MATERIAL_4,
+	MATERIAL_5,
+	MATERIAL_6,
+	MATERIAL_7,
+	DEFAULT
 };
 
-class TextString : public GenericArray <char>
+class position_3d
 {
 public:
-	TextString();
-	TextString(const TextString &incoming);
-	TextString &operator=(const TextString &incoming);
-	~TextString();
-
-	const char *Fgets(FILE *fp);
-	void DeleteLastControlCode(void);
-
-	void Add(char c);
-	void DeleteLast(void);
-	void Set(const char incoming[]);
-	const char *GetPointer(void) const;
-
-	int Strlen(void) const;
-
-	void Print(void) const;
+	position_3d() : v{0.0, 0.0, 0.0} { }
+	std::array<double,3> v;
 };
 
-class StringParser
-{
-protected:
-	char *str;
-	int *wordTop,*wordLength;
-	int nw;
-
-public:
-	StringParser();
-	~StringParser();
-	void CleanUp(void);
-
-	int Parse(const char s[]);
-protected:
-	int Parse(int wordTop[],int wordLength[],int maxNumWord,const char str[]);
-
-public:
-	int NW(void);
-	void GetWord(char wd[],int maxn,int i);
-};
-
-
-class Vec3
+class tri_facet
 {
 public:
-	double v[3];
-};
-
-class Triangle
-{
-public:
-	Vec3 p[3];
+	std::array<unsigned, 3> vertex_id;
+	material_type material;
 };
 
 class OBJData
 {
 private:
-	std::vector <Triangle> tri;
-	std::vector <Triangle> copy;
-	Vec3 move;
-	int color[30],pos[30];
-	double a[3];
+	std::vector<position_3d> m_vertices;
+	std::vector<tri_facet> m_facets;
+	position_3d move;
+	float a[3];
 public:
 	OBJData();
-	~OBJData();
-	void CleanUp(void);
-
 	void ReadObj(const char fn[]);
 	void Move(double x1,double y1,double z1);
 	void Rotate(double a1,double x1,double y1,double z1);
