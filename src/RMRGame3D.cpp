@@ -62,7 +62,7 @@ int Game::EndLevel(GLuint textID [])
 		FsGetWindowSize(wid,hei);
 
 		stl.Rotate(1.0,0.0,1.0,0.0);
-		bot.Rotate(-1.0,0.0,1.0,0.0);
+		bot.Rotate(1.0,0.0,1.0,0.0);
 
 		if(wid!=prevWid || hei!=prevHei)
 		{
